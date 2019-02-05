@@ -59,7 +59,7 @@
                      (second (some plugin/clojure-dep? (:dependencies project))))))
   (let [opts (merge {:color-scheme :solarized_dark} opts)]
     (-> project
-        (plugin/remove-plugin 'venantius/ultra)
+        (plugin/remove-plugin 'org.clojars.lxsli/ultra)
         (plugin/remove-dependency 'mvxcvi/puget)
         (plugin/remove-dependency 'mvxcvi/whidbey)
         (plugin/remove-dependency 'im.chit/hara.class)
@@ -85,7 +85,7 @@
   (if (plugin/supports-cljc? project)
     (-> project
         (plugin/add-dependencies
-         (plugin/plugin-dependency project 'venantius/ultra))
+         (plugin/plugin-dependency project 'org.clojars.lxsli/ultra))
         (update-in [:injections] concat `[(require 'ultra.hardcore)
                                           (ultra.hardcore/add-test-hooks! ~opts)])
         (assoc :monkeypatch-clojure-test false)
